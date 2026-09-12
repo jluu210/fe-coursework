@@ -4,105 +4,162 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Reservation Form</title>
-    <!-- 
-  First Name
-  Last Name
-  Email
-  Phone Number
-  Start Date
-  End Date
-  Optional rental car, hotel, and other accommodations
-  Whether the user wants the basic or premium package -->
   </head>
+
   <body>
-    <div class="hero-section" id="Welcome">
-      <h1>Thank you for Reserving with us today!</h1>
+    <div class="hero-section" id="welcome">
+      <h1>Thank you for reserving with us today!</h1>
       <p>Enter your information below.</p>
     </div>
+
     <form action="https://httpbin.org/post" method="post">
-      <select name="honorifics-selection">
+      <div class="honorific-field">
+        <label for="honorifics">Title</label>
+        <select id="honorifics" name="honorifics">
           <option value="mr">Mr.</option>
           <option value="mrs">Mrs.</option>
           <option value="miss">Miss.</option>
         </select>
+      </div>
+
       <div class="fname-field">
-        <label for="Name">First Name</label>
-        <input id="name" name="fname" type="text" placeholder="First Name" />
+        <label for="name">First Name</label>
+        <input
+          id="name"
+          name="fname"
+          type="text"
+          placeholder="First Name"
+          value=""
+          required
+        />
       </div>
+
       <div class="lname-field">
-        <label for="Last">Last Name</label>
-        <input id="lname" name="lname" type="text" placeholder="Last Name" />
+        <label for="lname">Last Name</label>
+        <input
+          id="lname"
+          name="lname"
+          type="text"
+          placeholder="Last Name"
+          value=""
+          required
+        />
       </div>
+
       <div class="email-field">
         <label for="email">Email</label>
         <input
           id="email"
           name="email"
           type="email"
-          placeholder="Enter your Email"
+          placeholder="Enter your email"
+          value=""
+          required
         />
       </div>
-      <div>
+
+      <div class="phone-field">
         <label for="phone">Phone</label>
         <input
-          type="tel"
           id="phone"
           name="phone"
-          pattern="\([0-9]{3}\) [0-9]{3}-[0-9]{4}"
+          type="tel"
           placeholder="(123) 456-7890"
+          value=""
+          pattern="\([0-9]{3}\) [0-9]{3}-[0-9]{4}"
+          required
         />
-        <br /><br />
+        <small>Format: (xxx) xxx-xxxx</small>
       </div>
+
       <div class="start-date">
         <label for="start">Start Date</label>
-        <input id="start" name="date" type="date" />
+        <input
+          id="start"
+          name="startDate"
+          type="date"
+          placeholder="Start Date"
+          value=""
+          required
+        />
       </div>
+
       <div class="end-date">
         <label for="end">End Date</label>
-        <input id="end" name="date" type="date" />
+        <input
+          id="end"
+          name="endDate"
+          type="date"
+          placeholder="End Date"
+          value=""
+          required
+        />
       </div>
-      <br />
-      <div class="other-fields">
+
+      <fieldset>
+        <legend>Optional Accommodations</legend>
+
         <input name="hotel-needed" id="hotel" type="checkbox" value="hotel" />
         <label for="hotel">Hotel</label>
+
         <br />
-        <input name="rental-car" id="rental" type="checkbox" value="rental" />
-        <label for="rental">Rental</label>
+
+        <input name="car-needed" id="rental" type="checkbox" value="rental" />
+        <label for="rental">Rental Car</label>
+
         <br />
-        <input name="other-accomodations" id="other" type="checkbox" value="other" />
+
+        <input
+          name="other-accommodations"
+          id="other"
+          type="checkbox"
+          value="other"
+        />
         <label for="other">Other Accommodations</label>
-      </div>
-      <br>
-      <div class="package-field">
+      </fieldset>
+
+      <fieldset>
+        <legend>Choose a Package</legend>
+
         <input
           name="package"
-          id="basic_package"
+          id="basic-package"
           type="radio"
-          value="basic_status"
+          value="basic"
+          required
         />
-        <label for="basic_package">basic</label>
+        <label for="basic-package">Basic</label>
+
         <br />
+
         <input
           name="package"
           id="premium-package"
           type="radio"
-          value="premium_status"
+          value="premium"
         />
-        <label for="premium-package">premium</label>
-        <br />
-      </div>
+        <label for="premium-package">Premium</label>
+      </fieldset>
+
       <div>
-      <br />
-        <textarea name="additional-info" id="additional-info" rows="10">
-Any additional information here</textarea
-        >
+        <label for="additional-info">Additional Information</label>
+        <br />
+        <textarea
+          name="additional-info"
+          id="additional-info"
+          placeholder="Enter any additional information"
+          rows="10"
+        ></textarea>
       </div>
-      <hr />
+
       <div class="submit-field">
-        <input type="submit" value="Book my Reservation" />
-      </div>
-      
+        <input type="submit" value="Book My Reservation" />
       </div>
     </form>
+
+    <footer>
+      <p>Phone: (555) 123-4567</p>
+      <p>Address: 123 Example Street, Anytown, USA</p>
+    </footer>
   </body>
 </html>
