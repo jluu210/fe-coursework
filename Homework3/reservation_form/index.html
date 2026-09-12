@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reservation Form</title>
+    <!-- 
+  First Name
+  Last Name
+  Email
+  Phone Number
+  Start Date
+  End Date
+  Optional rental car, hotel, and other accommodations
+  Whether the user wants the basic or premium package -->
+  </head>
+  <body>
+    <div class="hero-section" id="Welcome">
+      <h1>Thank you for Reserving with us today!</h1>
+      <p>Enter your information below.</p>
+    </div>
+    <form action="https://httpbin.org/post" method="post">
+      <select name="honorifics-selection">
+          <option value="mr">Mr.</option>
+          <option value="mrs">Mrs.</option>
+          <option value="miss">Miss.</option>
+        </select>
+      <div class="fname-field">
+        <label for="Name">First Name</label>
+        <input id="name" name="fname" type="text" placeholder="First Name" />
+      </div>
+      <div class="lname-field">
+        <label for="Last">Last Name</label>
+        <input id="lname" name="lname" type="text" placeholder="Last Name" />
+      </div>
+      <div class="email-field">
+        <label for="email">Email</label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          placeholder="Enter your Email"
+        />
+      </div>
+      <div>
+        <label for="phone">Phone</label>
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          pattern="\([0-9]{3}\) [0-9]{3}-[0-9]{4}"
+          placeholder="(123) 456-7890"
+        />
+        <br /><br />
+      </div>
+      <div class="start-date">
+        <label for="start">Start Date</label>
+        <input id="start" name="date" type="date" />
+      </div>
+      <div class="end-date">
+        <label for="end">End Date</label>
+        <input id="end" name="date" type="date" />
+      </div>
+      <br />
+      <div class="other-fields">
+        <input name="hotel-needed" id="hotel" type="checkbox" value="hotel" />
+        <label for="hotel">Hotel</label>
+        <br />
+        <input name="rental-car" id="rental" type="checkbox" value="rental" />
+        <label for="rental">Rental</label>
+        <br />
+        <input name="other-accomodations" id="other" type="checkbox" value="other" />
+        <label for="other">Other Accommodations</label>
+      </div>
+      <br>
+      <div class="package-field">
+        <input
+          name="package"
+          id="basic_package"
+          type="radio"
+          value="basic_status"
+        />
+        <label for="basic_package">basic</label>
+        <br />
+        <input
+          name="package"
+          id="premium-package"
+          type="radio"
+          value="premium_status"
+        />
+        <label for="premium-package">premium</label>
+        <br />
+      </div>
+      <div>
+      <br />
+        <textarea name="additional-info" id="additional-info" rows="10">
+Any additional information here</textarea
+        >
+      </div>
+      <hr />
+      <div class="submit-field">
+        <input type="submit" value="Book my Reservation" />
+      </div>
+      
+      </div>
+    </form>
+  </body>
+</html>
