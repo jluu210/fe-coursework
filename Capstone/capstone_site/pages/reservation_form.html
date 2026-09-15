@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reservation Form</title>
+  </head>
+
+  <body>
+    <div class="hero-section" id="welcome">
+      <h1>Thank you for reserving with us today!</h1>
+      <p>Enter your information below.</p>
+    </div>
+
+    <form action="https://httpbin.org/post" method="post">
+      <div class="honorific-field">
+        <label for="honorifics">Title</label>
+        <select id="honorifics" name="honorifics">
+          <option value="mr">Mr.</option>
+          <option value="mrs">Mrs.</option>
+          <option value="miss">Miss.</option>
+        </select>
+      </div>
+
+      <div class="fname-field">
+        <label for="name">First Name</label>
+        <input
+          id="name"
+          name="fname"
+          type="text"
+          placeholder="First Name"
+          value=""
+          required
+        />
+      </div>
+
+      <div class="lname-field">
+        <label for="lname">Last Name</label>
+        <input
+          id="lname"
+          name="lname"
+          type="text"
+          placeholder="Last Name"
+          value=""
+          required
+        />
+      </div>
+
+      <div class="email-field">
+        <label for="email">Email</label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          placeholder="Enter your email"
+          value=""
+          required
+        />
+      </div>
+
+      <div class="phone-field">
+        <label for="phone">Phone</label>
+        <input
+          id="phone"
+          name="phone"
+          type="tel"
+          placeholder="(123) 456-7890"
+          value=""
+          pattern="\([0-9]{3}\) [0-9]{3}-[0-9]{4}"
+          required
+        />
+        <small>Format: (xxx) xxx-xxxx</small>
+      </div>
+
+      <div class="start-date">
+        <label for="start">Start Date</label>
+        <input
+          id="start"
+          name="startDate"
+          type="date"
+          placeholder="Start Date"
+          value=""
+          required
+        />
+      </div>
+
+      <div class="end-date">
+        <label for="end">End Date</label>
+        <input
+          id="end"
+          name="endDate"
+          type="date"
+          placeholder="End Date"
+          value=""
+          required
+        />
+      </div>
+
+      <fieldset>
+        <legend>Optional Accommodations</legend>
+
+        <input name="hotel-needed" id="hotel" type="checkbox" value="hotel" />
+        <label for="hotel">Hotel</label>
+
+        <br />
+
+        <input name="car-needed" id="rental" type="checkbox" value="rental" />
+        <label for="rental">Rental Car</label>
+
+        <br />
+
+        <input
+          name="other-accommodations"
+          id="other"
+          type="checkbox"
+          value="other"
+        />
+        <label for="other">Other Accommodations</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Choose a Package</legend>
+
+        <input
+          name="package"
+          id="basic-package"
+          type="radio"
+          value="basic"
+          required
+        />
+        <label for="basic-package">Basic</label>
+
+        <br />
+
+        <input
+          name="package"
+          id="premium-package"
+          type="radio"
+          value="premium"
+        />
+        <label for="premium-package">Premium</label>
+      </fieldset>
+
+      <div>
+        <label for="additional-info">Additional Information</label>
+        <br />
+        <textarea
+          name="additional-info"
+          id="additional-info"
+          placeholder="Enter any additional information"
+          rows="10"
+        ></textarea>
+      </div>
+
+      <div class="submit-field">
+        <input type="submit" value="Book My Reservation" />
+      </div>
+    </form>
+
+    <footer>
+      <br />
+
+      <address>
+        Written by <a href="mailto:webmaster@example.com">Jason Luna</a>.<br />
+        Visit us at:<br />
+        Example.com<br />
+        Address: 123 Example Street, Anytown,<br />
+        USA
+      </address>
+    </footer>
+  </body>
+</html>
