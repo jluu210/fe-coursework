@@ -4,6 +4,59 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Log On</title>
+    <link href="styles/main.css" rel="stylesheet" type="text/css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
   </head>
-  <body></body>
+  <body>
+    <div class="navbar">
+      <img src="assets/logo.png" alt="logo" />
+    </div>
+    <main class="main-wrapper">
+      <section class="hero-section">
+        <img src="assets/clouds.jpg" alt="sky" class="hero-image" />
+      </section>
+
+      <section class="login-section">
+        <form
+          action="https://httpbin.org/post"
+          method="post"
+          class="login-form"
+        >
+          <h1>Login</h1>
+
+          <ul class="text-boxes">
+            <li>
+              <label for="email">
+                <i class="fa-solid fa-envelope"></i>
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="email"
+                required
+              />
+            </li>
+            <li>
+              <label for="password">
+                <i class="fa-solid fa-lock"></i>
+              </label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="password"
+                required
+              />
+            </li>
+          </ul>
+
+          <button type="submit">Submit</button>
+        </form>
+      </section>
+    </main>
+  </body>
 </html>
