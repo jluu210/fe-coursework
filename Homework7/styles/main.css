@@ -1,0 +1,270 @@
+* {
+  box-sizing: border-box;
+}
+.message::first-letter {
+  color: red;
+  font-size: 15px;
+}
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  font-family: Arial, sans-serif;
+  font-size: 21px;
+  color: #222;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 25px;
+}
+
+.top-nav {
+  margin-top: 25px;
+  height: 40px;
+  padding: 5px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-left,
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.nav-left {
+  margin-left: 50px;
+}
+.nav-right {
+  margin-right: 50px;
+}
+
+.top-nav a {
+  color: #222;
+  text-decoration: none;
+}
+
+.grid-icon,
+.icon-symbol {
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.grid-icon img,
+.icon-symbol img {
+  display: block;
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+.grid-icon img {
+  width: 28px;
+  height: 28px;
+  transform: scale(1.5);
+}
+
+.icon-symbol img {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 100px;
+}
+
+.logo-box {
+  width: 500px;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  font-size: 8px;
+}
+.logo-box img {
+  width: 500px;
+  height: 200px;
+  display: flex;
+}
+
+.search-area {
+  width: 75%;
+  max-width: 800px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+
+  background: #fff;
+  border: 1px solid #e1e1e1;
+  border-radius: 21px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.12);
+
+  padding: 0 6px 0 10px;
+}
+
+.search-area input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+
+  border: none;
+  outline: none;
+  background: transparent;
+
+  padding: 0 8px;
+  font-size: 13px;
+  color: #333;
+}
+.search-icon,
+.search-actions button {
+  border: none;
+  background-color: transparent;
+}
+
+.share-button {
+  width: 25px;
+  height: 25px;
+  border: none;
+  border-radius: 50%;
+  background-color: #f1f1f1;
+  color: #333;
+  cursor: pointer;
+}
+.share-button img {
+  width: 25px;
+  height: 25px;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.action-buttons button {
+  width: 100px;
+  height: 30px;
+  border: 2px none;
+  border-radius: 20px;
+  background-color: white;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.action-buttons button:hover,
+.nav-button:hover,
+.icon-button:hover {
+  background-color: #dcdcdc;
+  color: #222;
+}
+
+.message {
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  padding: 0 20px 12px;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.footer {
+  width: 100%;
+  min-height: 40px;
+  padding: 8px 65px;
+  background-color: #f2f2f2;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-top,
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.footer a {
+  color: #222;
+  text-decoration: none;
+}
+.nav-left a:hover {
+  text-decoration: underline;
+}
+.nav-right a:hover {
+  text-decoration: underline;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .top-nav {
+    font-size: 10px;
+  }
+
+  .search-area {
+    width: 80%;
+    border-radius: 50px 20px;
+  }
+
+  .action-buttons {
+    gap: 5px;
+  }
+
+  .action-buttons button {
+    width: 70px;
+  }
+
+  .footer {
+    padding: 8px 15px;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .message {
+    padding: 0 15px 10px;
+    font-size: 10px;
+  }
+
+  .footer {
+    min-height: auto;
+    padding: 8px 15px;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .footer-top,
+  .footer-bottom {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+}
