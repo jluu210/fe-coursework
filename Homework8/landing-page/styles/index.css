@@ -1,3 +1,9 @@
+@font-face {
+  font-family: "DK P.I. Font";
+  src: url("../assets/Dkpi-533z.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
 :root {
   --black: #0d0d0d;
   --dark-gray: #171717;
@@ -9,8 +15,9 @@
   --gold: #c39a45;
   --border: rgba(241, 234, 215, 0.2);
   --section-heading: yellow;
-  --font-h3: monospace;
-  --font-type: "Courier New";
+  --font-h3: "DK P.I. Font";
+  --font-type: "DK P.I. Font";
+  --font-h1: "DK P.I. Font";
 }
 
 * {
@@ -26,7 +33,7 @@ html {
 body {
   background-color: var(--black);
   color: var(--cream);
-  font-family: var(--font-type);
+  font-family: var(--font-h1);
   line-height: 1.6;
 }
 
@@ -140,6 +147,9 @@ section {
 
 .hero-content {
   max-width: 750px;
+}
+.hero-content h1 {
+  font-family: var(--font-h1);
 }
 
 .hero h1 {
