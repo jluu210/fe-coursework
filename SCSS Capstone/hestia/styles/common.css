@@ -24,9 +24,9 @@
 }
 
 body {
-  background: var(--back-ground-color);
-  font-size: 14px;
-  line-height: 1.6;
+  background: #fff;
+  color: #3c4858;
+  font-family: Arial, Helvetica, sans-serif;
 }
 body a {
   color: inherit;
@@ -103,6 +103,11 @@ html {
   display: flex;
   gap: 30px;
 }
+.nav-links li:last-child a {
+  padding: 7px 14px;
+  border-radius: 20px;
+  background: red;
+}
 
 .nav-links a,
 .footer-links a {
@@ -119,8 +124,16 @@ html {
   opacity: 0.75;
 }
 
+.wrapper {
+  margin: auto;
+  width: 75%;
+  box-shadow: 0 0 10px rgba(7, 32, 1, 0.7), inset 0 0 5px rgba(15, 1, 29, 0.2);
+}
+
 main > .welcome-section:first-child {
-  min-height: 360px;
+  margin: auto;
+  background: linear-gradient(rgba(15, 35, 60, 0.25), rgba(15, 35, 60, 0.25)), url("/assests/clouds_2.jpg") center 42%/cover no-repeat;
+  min-height: 400px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -128,7 +141,10 @@ main > .welcome-section:first-child {
   padding: 90px 20px 70px;
   color: #fff;
   text-align: center;
-  background: #1767a5;
+}
+main > .welcome-section:first-child h1,
+main > .welcome-section:first-child p {
+  z-index: 1;
 }
 main > .welcome-section:first-child h1 {
   margin: 0 0 8px;
@@ -137,6 +153,14 @@ main > .welcome-section:first-child h1 {
 }
 main > .welcome-section:first-child p {
   margin: 8px 0;
+}
+
+.welcome-image {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: url("/assests/statue_liberty.png") center bottom/auto 92% no-repeat;
+  max-height: 400px;
 }
 
 #see-more {
@@ -152,13 +176,13 @@ main > .welcome-section:first-child p {
 #creed-section {
   position: relative;
   z-index: 1;
-  width: min(94%, 1100px);
   margin: -22px auto 0;
   padding: 28px 6% 40px;
   border-radius: 4px;
   background: #fff;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
   text-align: center;
+  min-height: 300px;
 }
 #creed-section h2 {
   margin: 0 0 50px;
@@ -196,6 +220,170 @@ main > .welcome-section:first-child p {
   font-size: 0.95rem;
 }
 
-.footer {
+#about-section {
+  background-image: url("https://wp-themes.com/wp-content/themes/hestia/assets/img/slider1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  padding: 70px 0;
+  position: relative;
+  min-height: 300px;
+}
+
+.about-overlay {
+  background: rgba(20, 20, 20, 0.55);
+  padding: 60px 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.about-content {
+  width: min(90%, 1100px);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  color: #fff;
+}
+
+.about-text {
+  max-width: 420px;
+}
+
+.about-text h2 {
+  font-size: 2rem;
+  margin: 0 0 16px;
+  font-weight: 700;
+}
+
+.about-text p {
+  line-height: 1.6;
+  margin: 0;
+}
+
+.about-content img {
+  max-width: 340px;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+#blog-section {
+  padding: 70px 0;
+  background: #fff;
+  text-align: center;
+}
+
+.blog-grid {
+  width: min(90%, 1100px);
+  margin: 40px auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  text-align: left;
+}
+
+.blog-card h3 {
+  margin: 10px 0;
+  font-size: 1.2rem;
+}
+
+.blog-category {
+  font-size: 0.75rem;
+  color: #9c27b0;
+  text-transform: uppercase;
+}
+
+#contact {
+  padding: 0;
+  background: linear-gradient(rgba(10, 12, 18, 0.65), rgba(10, 12, 18, 0.65)), url("/assests/mountains_background.jpg") center/cover no-repeat;
+}
+
+.contact-overlay {
+  padding: 55px 5%;
+  text-align: left;
+}
+
+.contact-overlay h2 {
+  margin: 0 0 30px;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.contact-grid {
+  display: grid;
+  gap: 28px;
+  width: min(90%, 1100px);
+  margin: 0 auto;
+}
+
+.contact-card {
+  background: transparent;
+  color: #fff;
+}
+
+.contact-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0 0 12px;
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.contact-card h3 i {
+  font-size: 1.6rem;
+  flex: 0 0 auto;
+}
+
+.contact-card p {
+  margin: 0 0 8px 34px;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+footer {
+  padding: 15px 5%;
   background: #323437;
+  color: #fff;
+  text-align: right;
+  font-size: 0.7rem;
+}
+
+@media (max-width: 650px) {
+  .navbar {
+    padding: 14px 5%;
+  }
+  .nav-links {
+    gap: 12px;
+  }
+  .nav-links a {
+    font-size: 9px;
+  }
+  main > .welcome-section:first-child {
+    min-height: 340px;
+  }
+  .creed {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .about-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .about-text,
+  .about-content img {
+    max-width: 100%;
+  }
+  .blog-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
 }/*# sourceMappingURL=common.css.map */
