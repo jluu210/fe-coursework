@@ -57,6 +57,10 @@ body p {
 body section {
   padding: 100px 8%;
 }
+body a,
+body a:visited {
+  color: inherit;
+}
 
 html {
   scroll-behavior: smooth;
