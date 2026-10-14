@@ -1,0 +1,363 @@
+// Colors
+$primary: #e91e63;
+$text: #3c4858;
+$muted: #999;
+$footer: #232323;
+$white: #fff;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-weight: 300;
+  line-height: 1.68;
+}
+
+body.blog {
+  margin: 0;
+  background: #eee;
+  color: $text;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+// Top navigation
+.header {
+  position: relative;
+  z-index: 1000;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  min-height: 60px;
+  margin: 0;
+  background: $white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.12);
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1140px;
+    min-height: 60px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .navbar-brand {
+    color: $text;
+    text-decoration: none;
+
+    p {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 500;
+    }
+  }
+
+  .collapse.navbar-collapse {
+    display: block;
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    a {
+      color: $text;
+      font-size: 12px;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .active a {
+      color: $primary;
+    }
+
+    .btn-primary {
+      padding: 8px 18px;
+      border-radius: 20px;
+      background: $primary;
+
+      a {
+        color: $white;
+      }
+    }
+  }
+
+  .navbar-toggle-wrapper {
+    display: none;
+  }
+}
+
+// Pink page banner
+.page-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 180px;
+  margin: 60px 0 0;
+  overflow: hidden;
+  background: linear-gradient(115deg, #a51d80, #ed1760);
+  color: $white;
+
+  // Keep banner text above its decorative overlay.
+  .container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    text-align: center;
+  }
+
+  .hestia-title {
+    margin: 0;
+    color: $white;
+    font-size: 40px;
+    font-weight: 700;
+  }
+
+  .header-filter {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      115deg,
+      rgba(160, 20, 125, 0.2),
+      rgba(255, 20, 90, 0.15)
+    );
+  }
+}
+
+// White panel overlapping the bottom of the banner
+.main-raised {
+  position: relative;
+  z-index: 2;
+  width: calc(100% - 40px);
+  max-width: 1140px;
+  min-height: 400px;
+  margin: -20px auto 0;
+  padding: 30px 0 45px;
+  background: $white;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+  border-radius: 10px;
+}
+
+.blog-posts-wrap {
+  max-width: auto;
+  margin: 0 auto;
+  padding: 0 25px;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: column;
+}
+
+// Individual posts
+.card-blog {
+  height: 180px;
+  padding: 30px 0;
+  border-bottom: 1px solid #eee;
+
+  &:last-child {
+    border-bottom: 0;
+  }
+
+  .category {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+
+    a {
+      color: #00a5a8;
+      text-decoration: none;
+    }
+  }
+
+  .card-title {
+    margin: 0 0 7px;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.3;
+
+    a {
+      color: $text;
+      text-decoration: none;
+    }
+  }
+
+  .card-description {
+    color: #777;
+    font-size: 15px;
+    line-height: 1.68;
+
+    p {
+      margin: 0;
+    }
+
+    a {
+      color: $primary;
+      text-decoration: none;
+    }
+  }
+
+  .posted-by {
+    margin-top: 8px;
+    color: $muted;
+    font-size: 10px;
+
+    a {
+      color: $text;
+      text-decoration: none;
+    }
+  }
+}
+
+// Dark footer
+.footer-black {
+  min-height: 70px;
+  padding: 24px 20px;
+  background: $footer;
+  color: $white;
+  font-size: 11px;
+
+  .container {
+    max-width: 1140px;
+    margin: 0 auto;
+  }
+
+  .copyright {
+    text-align: right;
+
+    a {
+      color: $white;
+      text-decoration: none;
+    }
+  }
+}
+
+// Smaller screens
+@media (max-width: 767px) {
+  .navbar {
+    .container {
+      min-height: 56px;
+    }
+
+    .collapse.navbar-collapse {
+      display: none;
+    }
+
+    .navbar-toggle-wrapper {
+      display: block;
+    }
+  }
+
+  .page-header {
+    height: 155px;
+    margin-top: 56px;
+  }
+
+  .main-raised {
+    width: calc(100% - 24px);
+    padding-top: 22px;
+  }
+
+  .blog-posts-wrap {
+    padding: 0 18px;
+  }
+}
+
+// :root {
+//   --dark-gray: #171717;
+// }
+
+// * {
+//   margin: 0;
+//   padding: 0;
+//   box-sizing: border-box;
+//   text-decoration: none;
+// }
+// .navbar {
+//   margin: 0 auto;
+//   top: 0;
+//   left: 0;
+//   position: sticky;
+//   background-color: azure;
+//   border: 1px solid #171717;
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   width: 100%;
+//   padding: 20px 10%;
+//   z-index: 2;
+//   color: var(--dark-gray);
+// }
+// .nav-links {
+//   display: flex;
+//   gap: 20%;
+
+//   li {
+//     list-style: none;
+//   }
+// }
+// .logo {
+//   display: flex;
+//   align-items: center;
+//   gap: 10px;
+//   color: var(--antique);
+//   font-family: var(--font);
+//   font-size: 18px;
+//   letter-spacing: 1px;
+//   i {
+//     color: red;
+//   }
+//   &:hover {
+//     color: var(--sky-blue);
+//   }
+// }
+
+// .logo,
+// .nav-links a {
+//   color: inherit;
+//   text-decoration: none;
+// }
+// .blog-page-head {
+//   top: 0;
+//   position: absolute;
+//   background-color: red;
+//   inset: 0;
+//   z-index: 0;
+//   min-height: 400px;
+//   max-height: 400px;
+//   h2 {
+//     margin: 200px 45%;
+//     font-size: clamp(3rem, 6vw, 4.5rem);
+//     line-height: 1.1;
+//     align-self: center;
+//   }
+// }
+// .wrapper {
+//   z-index: 1;
+//   position: relative;
+//   margin: 275px 5%;
+//   padding: 28px 6% 40px;
+//   border-radius: 4px;
+//   width: 90%;
+//   box-shadow:
+//     0 0 10px rgba(7, 32, 1, 0.7),
+//     inset 0 0 5px rgba(15, 1, 29, 0.2);
+//   background-color: azure;
+//   min-height: 5000px;
+// }

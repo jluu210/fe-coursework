@@ -1,0 +1,229 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-weight: 300;
+  line-height: 1.68;
+}
+
+body.blog {
+  margin: 0;
+  background: #eee;
+  color: #3c4858;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.header {
+  position: relative;
+  z-index: 1000;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  min-height: 60px;
+  margin: 0;
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.12);
+}
+.navbar .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1140px;
+  min-height: 60px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.navbar .navbar-brand {
+  color: #3c4858;
+  text-decoration: none;
+}
+.navbar .navbar-brand p {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+}
+.navbar .collapse.navbar-collapse {
+  display: block;
+}
+.navbar .nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.navbar .nav a {
+  color: #3c4858;
+  font-size: 12px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.navbar .nav .active a {
+  color: #e91e63;
+}
+.navbar .nav .btn-primary {
+  padding: 8px 18px;
+  border-radius: 20px;
+  background: #e91e63;
+}
+.navbar .nav .btn-primary a {
+  color: #fff;
+}
+.navbar .navbar-toggle-wrapper {
+  display: none;
+}
+
+.page-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 180px;
+  margin: 60px 0 0;
+  overflow: hidden;
+  background: linear-gradient(115deg, #a51d80, #ed1760);
+  color: #fff;
+}
+.page-header .container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  text-align: center;
+}
+.page-header .hestia-title {
+  margin: 0;
+  color: #fff;
+  font-size: 40px;
+  font-weight: 700;
+}
+.page-header .header-filter {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, rgba(160, 20, 125, 0.2), rgba(255, 20, 90, 0.15));
+}
+
+.main-raised {
+  position: relative;
+  z-index: 2;
+  width: calc(100% - 40px);
+  max-width: 1140px;
+  min-height: 400px;
+  margin: -20px auto 0;
+  padding: 30px 0 45px;
+  background: #fff;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+  border-radius: 10px;
+}
+
+.blog-posts-wrap {
+  max-width: auto;
+  margin: 0 auto;
+  padding: 0 25px;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-blog {
+  height: 180px;
+  padding: 30px 0;
+  border-bottom: 1px solid #eee;
+}
+.card-blog:last-child {
+  border-bottom: 0;
+}
+.card-blog .category {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.card-blog .category a {
+  color: #00a5a8;
+  text-decoration: none;
+}
+.card-blog .card-title {
+  margin: 0 0 7px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+.card-blog .card-title a {
+  color: #3c4858;
+  text-decoration: none;
+}
+.card-blog .card-description {
+  color: #777;
+  font-size: 15px;
+  line-height: 1.68;
+}
+.card-blog .card-description p {
+  margin: 0;
+}
+.card-blog .card-description a {
+  color: #e91e63;
+  text-decoration: none;
+}
+.card-blog .posted-by {
+  margin-top: 8px;
+  color: #999;
+  font-size: 10px;
+}
+.card-blog .posted-by a {
+  color: #3c4858;
+  text-decoration: none;
+}
+
+.footer-black {
+  min-height: 70px;
+  padding: 24px 20px;
+  background: #232323;
+  color: #fff;
+  font-size: 11px;
+}
+.footer-black .container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+.footer-black .copyright {
+  text-align: right;
+}
+.footer-black .copyright a {
+  color: #fff;
+  text-decoration: none;
+}
+
+@media (max-width: 767px) {
+  .navbar .container {
+    min-height: 56px;
+  }
+  .navbar .collapse.navbar-collapse {
+    display: none;
+  }
+  .navbar .navbar-toggle-wrapper {
+    display: block;
+  }
+  .page-header {
+    height: 155px;
+    margin-top: 56px;
+  }
+  .main-raised {
+    width: calc(100% - 24px);
+    padding-top: 22px;
+  }
+  .blog-posts-wrap {
+    padding: 0 18px;
+  }
+}/*# sourceMappingURL=blog.css.map */

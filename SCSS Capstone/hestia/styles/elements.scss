@@ -1,0 +1,278 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+// Colors
+$primary: #e91e63;
+$text: #3c4858;
+$muted: #999;
+$footer: #232323;
+$white: #fff;
+
+:root {
+  --main-font: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  line-height: 1.618;
+}
+
+body {
+  font-weight: 300;
+  line-height: 1.68;
+  h1 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+  }
+  h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+  }
+  h3 {
+    display: block;
+    font-size: 1.17em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+  }
+  h4 {
+    display: block;
+    margin-block-start: 1.33em;
+    margin-block-end: 1.33em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+  }
+  h5 {
+    display: block;
+    font-size: 0.83em;
+    margin-block-start: 1.67em;
+    margin-block-end: 1.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+  }
+  h6 {
+    display: block;
+    font-size: 0.67em;
+    margin-block-start: 2.33em;
+    margin-block-end: 2.33em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+  }
+  a {
+    text-decoration: none;
+    color: #ed1760;
+  }
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+}
+
+body.blog {
+  margin: 0;
+  background: #eee;
+  color: $text;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+// Top navigation
+.header {
+  position: relative;
+  z-index: 1000;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  min-height: 60px;
+  margin: 0;
+  background: $white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.12);
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1140px;
+    min-height: 60px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .navbar-brand {
+    color: $text;
+    text-decoration: none;
+
+    p {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 500;
+    }
+  }
+
+  .collapse.navbar-collapse {
+    display: block;
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    a {
+      color: $text;
+      font-size: 12px;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .active a {
+      color: $primary;
+    }
+
+    .btn-primary {
+      padding: 8px 18px;
+      border-radius: 20px;
+      background: $primary;
+
+      a {
+        color: $white;
+      }
+    }
+  }
+
+  .navbar-toggle-wrapper {
+    display: none;
+  }
+}
+
+// Pink page banner
+.page-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 180px;
+  margin: 60px 0 0;
+  overflow: hidden;
+  background: linear-gradient(115deg, #a51d80, #ed1760);
+  color: $white;
+
+  // Keep banner text above its decorative overlay.
+  .container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    text-align: center;
+  }
+
+  .hestia-title {
+    margin: 0;
+    color: $white;
+    font-size: 40px;
+    font-weight: 700;
+  }
+
+  .header-filter {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      115deg,
+      rgba(160, 20, 125, 0.2),
+      rgba(255, 20, 90, 0.15)
+    );
+  }
+}
+
+// White panel overlapping the bottom of the banner
+.main-raised {
+  position: relative;
+  z-index: 2;
+  width: calc(100% - 40px);
+  max-width: 1140px;
+  min-height: 400px;
+  margin: -20px auto 0;
+  padding: 30px 0 45px;
+  background: $white;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+  border-radius: 10px;
+}
+
+.demo-section {
+  display: flex;
+  align-items: center;
+  padding: 20px 20%;
+  p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    unicode-bidi: isolate;
+  }
+}
+
+// Dark footer
+.footer-black {
+  min-height: 70px;
+  padding: 24px 20px;
+  background: $footer;
+  color: $white;
+  font-size: 11px;
+
+  .container {
+    max-width: 1140px;
+    margin: 0 auto;
+  }
+
+  .copyright {
+    text-align: right;
+
+    a {
+      color: $white;
+      text-decoration: none;
+    }
+  }
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 300;
+  font-stretch: 100%;
+  src: url(https://fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3GUBGEe.woff2)
+    format("woff2");
+  unicode-range:
+    U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
