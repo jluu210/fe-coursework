@@ -188,6 +188,7 @@
                       </optgroup>
                     </select>
                     <br /><br />
+                    <label for="basic-package"><h2>Radio Buttons:</h2></label><br />
                     <input
                       name="package"
                       id="basic-package"
@@ -216,6 +217,7 @@
                     />
                     <label for="premium-package">Radio 3</label>
                     <br /><br />
+                    <label for="basic-package"><h2>Checkboxes:</h2></label><br />
                     <input
                       name="package"
                       id="basic-package"
@@ -223,6 +225,7 @@
                       value="basic"
                       required
                     />
+                    
                     <label for="basic-package">Radio 1</label>
 
                     <br />
@@ -244,24 +247,23 @@
                     />
                     <label for="premium-package">Radio 3</label>
                     <br />
+                    
                     <label for="tfield">Password:</label><br />
                     <input
                       type="password"
-                      id="tfield"
+                      id="t-pass"
                       name="tname"
                       value=""
                     /><br />
                     <br />
-                    <label for="tfield">File Input:</label><br />
-                    <input
-                      type="file"
-                      id="tfield"
-                      name="tname"
-                      value=""
-                    /><br />
+                    <hr>
+                    <form action="/upload" method="post" enctype="multipart/form-data">
+                      <label for="file-input">File Input:</label><br />
+                      <input type="file" id="file-input" name="tname" />
+                    <br />
                     <div>
                       <input type="reset" value="Clear" />
-                      <input type="submit" value="Submit" />
+                      <input type="submit" id="sub-button" value="Submit" />
                     </div>
                   </form>
                 </fieldset>

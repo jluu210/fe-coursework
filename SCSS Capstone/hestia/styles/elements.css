@@ -221,6 +221,30 @@ body.blog {
   padding: 0.5rem 1.5rem;
 }
 
+#tfield,
+#t-data,
+#t-pass {
+  border: none;
+  border-bottom: 2px solid transparent;
+}
+#tfield:focus,
+#t-data:focus,
+#t-pass:focus {
+  outline: none;
+  border-bottom: 2px solid #e91e63;
+}
+
+#sub-button {
+  background: #e91e63;
+  color: #fff;
+  border: 0;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+#sub-button:hover {
+  background: rgb(202.4089068826, 19.7910931174, 81.8631578947);
+}
+
 .post-meta {
   display: flex;
   align-items: center;

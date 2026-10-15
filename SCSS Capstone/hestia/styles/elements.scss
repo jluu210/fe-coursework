@@ -249,6 +249,28 @@ body.blog {
     padding: 0.5rem 1.5rem;
   }
 }
+#tfield,
+#t-data,
+#t-pass {
+  border: none;
+  border-bottom: 2px solid transparent;
+  &:focus {
+    outline: none;
+    border-bottom: 2px solid $primary;
+  }
+}
+
+#sub-button {
+  background: #e91e63;
+  color: #fff;
+  border: 0;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+
+  &:hover {
+    background: darken(#e91e63, 8%);
+  }
+}
 
 .post-meta {
   display: flex;
