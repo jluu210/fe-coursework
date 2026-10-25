@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="/scripts/rock-paper-scissors.js" defer></script>
+  </head>
+  <body>
+    <h1>Rock Paper Scissors</h1>
+
+    <form>
+      <fieldset>
+        <legend>Choose a selection</legend>
+
+        <input
+          type="radio"
+          name="selection"
+          id="paper"
+          value="paper"
+          required
+        />
+        <label for="paper">Paper</label>
+
+        <br />
+
+        <input type="radio" name="selection" id="scissors" value="scissors" />
+        <label for="scissors">Scissors</label>
+
+        <br />
+
+        <input type="radio" name="selection" id="rock" value="rock" />
+        <label for="rock">Rock</label>
+
+        <br />
+
+        <button type="submit">Submit</button>
+      </fieldset>
+    </form>
+    <section id="computer-section" aria-live="polite"></section>
+    <section id="result-section" aria-live="polite"></section>
+    <section id="scoreboard" aria-live="polite"></section>
+  </body>
+</html>
