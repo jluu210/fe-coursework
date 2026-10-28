@@ -36,6 +36,7 @@ class Counter {
 }
 
 const c1 = new Counter();
+
 c1.increment();
 console.log(c1.getValue());
 c1.increment();
@@ -46,21 +47,24 @@ c1.increment();
 console.log(c1.getValue());
 c1.increment();
 console.log(c1.getValue());
-c1.decrement();
-console.log(c1.getValue());
-c1.decrement();
-console.log(c1.getValue());
-c1.decrement();
-console.log(c1.getValue());
-c1.decrement();
-c1.clear();
-console.log(c1.getValue());
-c1.decrement();
-console.log(c1.getValue());
-c1.decrement();
-console.log(c1.getValue());
-c1.decrement();
-console.log(c1.getValue());
+// c1.decrement();
+// console.log(c1.getValue());
+// c1.decrement();
+// console.log(c1.getValue());
+// c1.decrement();
+// console.log(c1.getValue());
+// c1.decrement();
+// c1.clear();
+// console.log(c1.getValue());
+// c1.decrement();
+// console.log(c1.getValue());
+// c1.decrement();
+// console.log(c1.getValue());
+// c1.decrement();
+// console.log(c1.getValue());
+
+const c2 = new Counter();
+console.log("C2 VALUE: ", c2.getValue());
 
 class BankAccount {
   constructor(firstName, lastName, balance = 0) {
@@ -181,8 +185,8 @@ class Mage extends Character {
 }
 
 // Example usage
-const warrior = new Warrior("Thorin", 100, 15, 5);
-const mage = new Mage("Gandalf", 80, 10, 20);
+const warrior = new Warrior("Red Warrior", 100, 15, 5);
+const mage = new Mage("Yellow Wizard", 80, 10, 20);
 
 warrior.attackTarget(mage);
 mage.castSpell(warrior);
