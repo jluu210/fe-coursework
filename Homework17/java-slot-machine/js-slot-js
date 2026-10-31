@@ -1,0 +1,18 @@
+import { createInterface } from "node:readline/promises";
+import { stdin as input, stdout as output } from "node:process";
+
+const user_input = createInterface({ input, output });
+const symbols = ["", "", ""];
+
+async function gameLoop() {
+  while (true) {
+    const bet = await user_input.question("Enter a bet [/q]: ");
+    if (bet === "/q") {
+      break;
+    }
+    console.log(`You typed ${bet}`);
+  }
+  user_input.close();
+}
+
+gameLoop();
