@@ -2,17 +2,115 @@ import { createInterface } from "node:readline/promises";
 import { stdin as input, stdout as output } from "node:process";
 
 const user_input = createInterface({ input, output });
-const symbols = ["", "", ""];
+const symbols = ["𖹭", "☘︎", "☆", "◈", "$"];
+const payOut = {
+  "𖹭": 5,
+  "☘︎": 10,
+  "☆": 20,
+  "◈": 50,
+};
+
+const startBalance = 100;
+function startUpDisplay() {
+  console.clear();
+  console.log(`
+Welcome to the JS Slot Machine!
+
+Match 3 symbols to win.
+
+    Pay Outs:
+        3 𖹭 = 5× bet
+        3 ☘︎ = 10× bet
+        3 ◈ = 50× bet
+        3 $ = 100x bet!
+
+$'s are WILD
+
+Balance: ${startBalance}
+`);
+}
+
+function wait(time) {
+  return new Promise((resolve) => setTimeout(resolve, time));
+}
+async function spinReels() {
+  console.log("\nSpinning...");
+
+  for (let i = 0; i < 3; i++) {
+    console.clear();
+    console.log("JS Slot Machine \n");
+    console.log("Spinning...");
+
+    const display = Array.from(
+      { length: 3 },
+      () => symbols[Math.floor(Math.random() * symbols.length)]
+    );
+
+    console.log(`[ ${display.join(" | ")} ]`);
+    await wait(400);
+  }
+
+  // Choose the final result for all three reels.
+  return Array.from(
+    { length: 3 },
+    () => symbols[Math.floor(Math.random() * symbols.length)]
+  );
+}
+
+function determineWinner(reels, bet) {
+  //wins with all dollar signs are a super payout
+  const dollarCount = reels.filter((symbol) => symbol === "$").length;
+  if (dollarCount === 3) {
+    return bet * 100;
+  }
+  //dollar signs are wild
+  const matchingSymbols = reels.filter((symbol) => symbol !== "$");
+  if (
+    matchingSymbols.length > 0 &&
+    matchingSymbols.every((symbol) => symbol === matchingSymbols[0])
+  ) {
+    return bet * payOut[matchingSymbols[0]];
+  }
+
+  const allMatch = reels.every((symbol) => symbol === reels[0]);
+
+  if (allMatch) {
+    return bet * payOut[reels[0]];
+  }
+
+  return 0;
+}
 
 async function gameLoop() {
-  while (true) {
-    const bet = await user_input.question("Enter a bet [/q]: ");
-    if (bet === "/q") {
+  let balance = startBalance;
+  while (balance > 0) {
+    //wait for user bet
+    const betInput = (
+      await user_input.question("Enter a bet [q]uit: ")
+    ).toLowerCase();
+    if (betInput === "q" || betInput === "quit") {
       break;
     }
-    console.log(`You typed ${bet}`);
+    const bet = Number(betInput);
+    if (!Number.isInteger(bet) || bet <= 0 || bet > balance) {
+      console.log("Enter a valid bet within your balance.");
+      continue;
+    }
+    balance -= bet;
+    const reels = await spinReels();
+    console.clear();
+    console.log("JS Slot Machine");
+    console.log(`\n[ ${reels.join(" | ")} ]\n`);
+    const winnings = determineWinner(reels, bet);
+    if (winnings > 0) {
+      console.log(`You WON!! ${winnings}\n`);
+      balance += winnings;
+    }
+    console.log(`Bet: ${bet}\n`);
+    console.log(`Balance: $${balance}\n`);
   }
   user_input.close();
 }
 
+startUpDisplay();
 gameLoop();
