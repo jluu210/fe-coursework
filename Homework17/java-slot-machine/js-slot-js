@@ -2,12 +2,12 @@ import { createInterface } from "node:readline/promises";
 import { stdin as input, stdout as output } from "node:process";
 
 const user_input = createInterface({ input, output });
-const symbols = ["𖹭", "☘︎", "☆", "◈", "$"];
+const symbols = ["🍒", "🌶️", "⭐", "💎", "💲"];
 const payOut = {
-  "𖹭": 5,
-  "☘︎": 10,
-  "☆": 20,
-  "◈": 50,
+  "🍒": 5,
+  "🌶️": 10,
+  "⭐": 20,
+  "💎": 50,
 };
 
 const startBalance = 100;
@@ -19,10 +19,11 @@ Welcome to the JS Slot Machine!
 Match 3 symbols to win.
 
     Pay Outs:
-        3 𖹭 = 5× bet
-        3 ☘︎ = 10× bet
-        3 ◈ = 50× bet
-        3 $ = 100x bet!
+        3 🍒 =  5× bet
+        3 🌶️  = 10× bet
+        3 ⭐ = 20× bet
+        3 💎 = 50× bet
+        3 💲 = 100x bet!
 
 $'s are WILD
 
@@ -33,13 +34,44 @@ Balance: ${startBalance}
 function wait(time) {
   return new Promise((resolve) => setTimeout(resolve, time));
 }
-async function spinReels() {
-  console.log("\nSpinning...");
+
+async function flashOnWin(reels, bet, balance, winnings) {
+  let visible = true; //when true the reel is visable
+
+  user_input.setPrompt("Enter a bet [q]uit: ");
+
+  //wait for user to input new bet
+  const betPromise = new Promise((resolve) => {
+    user_input.once("line", resolve);
+  });
+
+  function flash() {
+    console.clear();
+    console.log("JS Slot Machine\n");
+
+    console.log(visible ? `[ ${reels.join(" | ")} ]` : `✨WIN $${winnings}✨`);
+
+    console.log(`\nBet: $${bet}\n`);
+    console.log(`Balance: $${balance}\n`);
+
+    user_input.prompt(true);
+    visible = !visible;
+  }
+  flash();
+  const animation = setInterval(flash, 300);
+
+  const betInput = await betPromise;
+  clearInterval(animation);
+  return betInput.trim().toLowerCase();
+}
+
+async function spinReels(bet, balance) {
+  //console.log("\nSpinning...\n");
 
   for (let i = 0; i < 3; i++) {
     console.clear();
     console.log("JS Slot Machine \n");
-    console.log("Spinning...");
+    //console.log("\nSpinning...");
 
     const display = Array.from(
       { length: 3 },
@@ -47,6 +79,8 @@ async function spinReels() {
     );
 
     console.log(`[ ${display.join(" | ")} ]`);
+    console.log(`\nBet: $${bet}\n`);
+    console.log(`Balance: $${balance}\n`);
     await wait(400);
   }
 
@@ -59,12 +93,12 @@ async function spinReels() {
 
 function determineWinner(reels, bet) {
   //wins with all dollar signs are a super payout
-  const dollarCount = reels.filter((symbol) => symbol === "$").length;
+  const dollarCount = reels.filter((symbol) => symbol === "💲").length;
   if (dollarCount === 3) {
     return bet * 100;
   }
   //dollar signs are wild
-  const matchingSymbols = reels.filter((symbol) => symbol !== "$");
+  const matchingSymbols = reels.filter((symbol) => symbol !== "💲");
   if (
     matchingSymbols.length > 0 &&
     matchingSymbols.every((symbol) => symbol === matchingSymbols[0])
@@ -83,11 +117,14 @@ function determineWinner(reels, bet) {
 
 async function gameLoop() {
   let balance = startBalance;
+  let nextBetInput = "";
+
   while (balance > 0) {
     //wait for user bet
-    const betInput = (
-      await user_input.question("Enter a bet [q]uit: ")
-    ).toLowerCase();
+    const betInput =
+      nextBetInput ||
+      (await user_input.question("Enter a bet [q]uit: ")).toLowerCase();
+    nextBetInput = "";
     if (betInput === "q" || betInput === "quit") {
       break;
     }
@@ -97,16 +134,16 @@ async function gameLoop() {
       continue;
     }
     balance -= bet;
-    const reels = await spinReels();
+    const reels = await spinReels(bet, balance);
     console.clear();
     console.log("JS Slot Machine");
     console.log(`\n[ ${reels.join(" | ")} ]\n`);
     const winnings = determineWinner(reels, bet);
     if (winnings > 0) {
-      console.log(`You WON!! ${winnings}\n`);
       balance += winnings;
+      nextBetInput = await flashOnWin(reels, bet, balance, winnings);
     }
-    console.log(`Bet: ${bet}\n`);
+    console.log(`Bet: $${bet}\n`);
     console.log(`Balance: $${balance}\n`);
   }
   user_input.close();
