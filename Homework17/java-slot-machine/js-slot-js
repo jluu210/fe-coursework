@@ -142,9 +142,10 @@ async function gameLoop() {
     if (winnings > 0) {
       balance += winnings;
       nextBetInput = await flashOnWin(reels, bet, balance, winnings);
+    } else {
+      console.log(`Bet: $${bet}\n`);
+      console.log(`Balance: $${balance}\n`);
     }
-    console.log(`Bet: $${bet}\n`);
-    console.log(`Balance: $${balance}\n`);
   }
   user_input.close();
 }
