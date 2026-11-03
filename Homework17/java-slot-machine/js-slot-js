@@ -89,12 +89,9 @@ async function flashOnWin(reels, bet, balance, winnings) {
 }
 
 async function spinReels(bet, balance) {
-  //console.log("\nSpinning...\n");
-
   for (let i = 0; i < 3; i++) {
     console.clear();
     console.log("JS Slot Machine \n");
-    //console.log("\nSpinning...");
 
     const display = Array.from({ length: 3 }, randomSymbol);
 
