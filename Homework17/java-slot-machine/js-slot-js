@@ -9,6 +9,29 @@ const payOut = {
   "⭐": 5,
   "💎": 25,
 };
+const symbolWeights = {
+  "🍒": 40,
+  "🌶️": 30,
+  "⭐": 18,
+  "💎": 9,
+  "💲": 3,
+};
+
+function randomSymbol() {
+  const totalWeight = Object.values(symbolWeights).reduce(
+    (total, weight) => total + weight,
+    0
+  );
+
+  let roll = Math.random() * totalWeight;
+
+  for (const symbol of symbols) {
+    roll -= symbolWeights[symbol];
+    if (roll < 0) return symbol;
+  }
+
+  return symbols[symbols.length - 1]; // fallback
+}
 
 const startBalance = 100;
 function startUpDisplay() {
@@ -73,10 +96,7 @@ async function spinReels(bet, balance) {
     console.log("JS Slot Machine \n");
     //console.log("\nSpinning...");
 
-    const display = Array.from(
-      { length: 3 },
-      () => symbols[Math.floor(Math.random() * symbols.length)]
-    );
+    const display = Array.from({ length: 3 }, randomSymbol);
 
     console.log(`[ ${display.join(" | ")} ]`);
     console.log(`\nBet: $${bet}\n`);
@@ -85,10 +105,7 @@ async function spinReels(bet, balance) {
   }
 
   // Choose the final result for all three reels.
-  return Array.from(
-    { length: 3 },
-    () => symbols[Math.floor(Math.random() * symbols.length)]
-  );
+  return Array.from({ length: 3 }, randomSymbol);
 }
 
 function determineWinner(reels, bet) {
