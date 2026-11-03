@@ -10,6 +10,14 @@ const payOut = {
   "💎": 25,
 };
 
+const symbolWeight = {
+  "🍒": 40,
+  "🌶️": 30,
+  "⭐": 20,
+  "💎": 10,
+  "💲": 5,
+};
+
 const startBalance = 100;
 function startUpDisplay() {
   console.clear();
@@ -19,11 +27,11 @@ Welcome to the JS Slot Machine!
 Match 3 symbols to win.
 
     Pay Outs:
-        3 🍒 =  1× bet
-        3 🌶️  = 2× bet
-        3 ⭐ =  5× bet
-        3 💎 = 25× bet
-        3 💲 = 100x bet!
+        3 🍒 =   1× bet
+        3 🌶️  =   2× bet
+        3 ⭐ =   5× bet
+        3 💎 =  25× bet
+        3 💲 = 100x bet
 
 $'s are WILD
 
@@ -66,12 +74,9 @@ async function flashOnWin(reels, bet, balance, winnings) {
 }
 
 async function spinReels(bet, balance) {
-  //console.log("\nSpinning...\n");
-
   for (let i = 0; i < 3; i++) {
     console.clear();
     console.log("JS Slot Machine \n");
-    //console.log("\nSpinning...");
 
     const display = Array.from(
       { length: 3 },
@@ -83,7 +88,7 @@ async function spinReels(bet, balance) {
     console.log(`Balance: $${balance}\n`);
     await wait(400);
   }
-
+  //TODO: multiply by weights to determine selection.
   // Choose the final result for all three reels.
   return Array.from(
     { length: 3 },
