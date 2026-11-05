@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+table {
+  width: 600px;
+  height: 120px;
+  border-collapse: collapse;
+}
+
+td {
+  width: 200px;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+.col1 {
+  background-color: #e63946;
+  color: white;
+}
+
+.col2 {
+  background-color: #457b9d;
+  color: white;
+}
+
+.col3 {
+  background-color: #a8dadc;
+  color: #1d3557;
+}
