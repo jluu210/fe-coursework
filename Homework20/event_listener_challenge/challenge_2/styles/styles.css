@@ -1,0 +1,26 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f7fb;
+  color: #1f2937;
+}
+
+.site-header {
+  background: linear-gradient(135deg, #0050fc, #001d44);
+  color: white;
+  position: sticky;
+  min-height: 100px;
+  display: flex;
+  top: 0;
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
