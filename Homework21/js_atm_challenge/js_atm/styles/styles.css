@@ -85,6 +85,10 @@ button {
   color: white;
 }
 
+.submit-button {
+  margin-top: 20px;
+}
+
 .menu button:hover {
   background: #066570;
 }
