@@ -189,8 +189,10 @@ class BankService {
         <label for="amount">Amount in dollars</label>
         <input id="amount" name="amount" type="number"
           min="0.01" step="0.01" required />
+        <section class="submit-button">
         <button type="submit">${label}</button>
         <button type="button" data-action="menu">Back to main menu</button>
+        </section>
       </form>
     `;
   }
