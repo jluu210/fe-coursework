@@ -147,7 +147,7 @@ class ClassRoom {
 
       // Finish on the winner selected at the start.
       this.selectedStudentId = winner.id;
-      result.textContent = `${winner.getName()}!`;
+      result.textContent = `The winner is ${winner.getName()}!`;
       this.renderSidebar();
       const winnerRow = this.nameList.querySelector("li.selected");
       winnerRow?.classList.add("winner-flash");
