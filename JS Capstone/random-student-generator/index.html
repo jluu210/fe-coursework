@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Name Picker</title>
+    <link rel="stylesheet" href="/styling/styling.css" />
+  </head>
+  <body>
+    <aside class="sidebar">
+      <h2>Students and weights</h2>
+      <ul class="name-list" id="nameList">
+        <img
+          src="https://cdn.jsdelivr.net/npm/@withicons/loaders@latest/dist/svg/line/spinner-spokes.svg"
+          width="100"
+          height="100"
+          alt="Loading"
+        />
+      </ul>
+    </aside>
+
+    <main class="main">
+      <section class="picker">
+        <h1>It's your lucky day:</h1>
+        <button id="pickButton">Press me to randomly pick a Student.</button>
+        <p id="result" aria-live="polite"></p>
+        <form>
+          <p class="weight-legend">
+            <fieldset>
+            <legend>How weights work:</legend>
+            Use <strong>+ (plus)</strong> to give a student more weight or
+            <strong>− (minus)</strong> to reduce it. Higher weight means a greater
+            chance of being picked. At Zero, That student won’t be selected.
+            </fieldset>
+          </p>
+        </form>
+      </section>
+    </main>
+    <script src="/scripts/app.js"></script>
+  </body>
+</html>
